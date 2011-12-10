@@ -11,8 +11,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'canine.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -115,11 +115,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'core',
+    'clortho',
 )
+
+AUTHENTICATED_BACKENDS = (
+    'clortho.auth_backends.FacebookBackend',
+)
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -143,3 +147,10 @@ LOGGING = {
         },
     }
 }
+
+## CLORTHO SETTINGS
+FACEBOOK_SECRET_KEY = 'd78704c79689cc56978402c394f5f8a7'
+FACEBOOK_APP_ID = '278966265489269'
+FACEBOOK_EXTENDED_PERMISSIONS = 'email'
+CLORTHO_USER_MODEL = 'core.CustomUser'
+CLORTHO_ASSOCIATE_URL = 'register'

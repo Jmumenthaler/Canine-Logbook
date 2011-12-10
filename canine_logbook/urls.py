@@ -9,9 +9,14 @@ urlpatterns = patterns('',
     # url(r'^$', 'canine_logbook.views.home', name='home'),
     # url(r'^canine_logbook/', include('canine_logbook.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    ## CORE
+    url(r'^$', 'core.views.dashboard', name='dashboard'),
+    url(r'^auth/$', 'core.views.auth', name='auth'),
+    url(r'^add-dog/$', 'core.views.add_dog', name='add-dog'),
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    ## SOCIAL AUTH
+    url(r'^clortho/', include('clortho.urls')'),
+
+    ## ADMIN
+    url(r'^admin/', include(admin.site.urls)),
 )
