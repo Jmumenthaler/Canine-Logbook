@@ -1,8 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^add-dog/$', 'core.views.add_dog', name='add-dog'),
 
     ## SOCIAL AUTH
-    url(r'^clortho/', include('clortho.urls')'),
+    url(r'^clortho/', include('clortho.urls')),
 
     ## ADMIN
     url(r'^admin/', include(admin.site.urls)),

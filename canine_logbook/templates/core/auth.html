@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hello, auth.</h1>
+
+{% url clortho.views.facebook_login as facebook_login_url %}
+
+<a href="{{ facebook_login_url }}">Login with Facebook</a>.
+
+{% endblock %}

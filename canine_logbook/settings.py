@@ -1,4 +1,6 @@
-# Django settings for canine_logbook project.
+import os
+
+PROJECT_ROOT = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -103,9 +105,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'canine_logbook.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -148,9 +148,10 @@ LOGGING = {
     }
 }
 
+
 ## CLORTHO SETTINGS
 FACEBOOK_SECRET_KEY = 'd78704c79689cc56978402c394f5f8a7'
 FACEBOOK_APP_ID = '278966265489269'
 FACEBOOK_EXTENDED_PERMISSIONS = 'email'
-CLORTHO_USER_MODEL = 'core.CustomUser'
-CLORTHO_ASSOCIATE_URL = 'register'
+#CLORTHO_USER_MODEL = 'core.CustomUser'
+CLORTHO_ASSOCIATE_URL = 'auth'
